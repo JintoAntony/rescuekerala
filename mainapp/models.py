@@ -53,6 +53,8 @@ class Request(models.Model):
     location = models.CharField(max_length=500,verbose_name='Location - സ്ഥലം')
     requestee = models.CharField(max_length=100,verbose_name='Requestee - അപേക്ഷകന്‍റെ പേര്')
     requestee_phone = models.CharField(max_length=10,verbose_name='Requestee Phone - അപേക്ഷകന്‍റെ ഫോണ്‍ നമ്പര്‍')
+    requestee_phone_2 = models.CharField(max_length=10,verbose_name='Requestee Phone (2) - അപേക്ഷകന്‍റെ ഫോണ്‍ നമ്പര്‍ (2)',null=True,)
+    requestee_phone_3 = models.CharField(max_length=10,verbose_name='Requestee Phone (3)- അപേക്ഷകന്‍റെ ഫോണ്‍ നമ്പര്‍ (3)',null=True,)
     latlng = models.CharField(max_length=100, verbose_name='GPS Coordinates - GPS നിർദ്ദേശാങ്കങ്ങൾ ', blank=True)
     latlng_accuracy = models.CharField(max_length=100, verbose_name='GPS Accuracy - GPS കൃത്യത ', blank=True)
     is_request_for_others = models.BooleanField(verbose_name='Requesting for others - മറ്റൊരാൾക്ക് വേണ്ടി അപേക്ഷിക്കുന്നു  ', default=False)

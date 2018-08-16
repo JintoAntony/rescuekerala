@@ -16,6 +16,8 @@ class CreateRequest(CreateView):
         'location',
         'requestee',
         'requestee_phone',
+        'requestee_phone_2',
+        'requestee_phone_3',
         'is_request_for_others',
         'latlng',
         'latlng_accuracy',

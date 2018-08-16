@@ -42,7 +42,7 @@ class CreateRequest(CreateView):
 
 class RegisterVolunteer(CreateView):
     model = Volunteer
-    fields = ['name', 'district', 'phone', 'organisation', 'area', 'address']
+    fields = ['name', 'district', 'phone', 'organisation', 'area', 'address','latlng','latlng_accuracy']
     success_url = '/reg_success'
 
 

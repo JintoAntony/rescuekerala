@@ -113,6 +113,8 @@ class Volunteer(models.Model):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=10)
     organisation = models.CharField(max_length=250, verbose_name="Organization (സംഘടന) / Institution")
+    latlng = models.CharField(max_length=100, verbose_name='GPS Coordinates - GPS നിർദ്ദേശാങ്കങ്ങൾ ', blank=True)
+    latlng_accuracy = models.CharField(max_length=100, verbose_name='GPS Accuracy - GPS കൃത്യത ', blank=True)
     address = models.TextField()
     area = models.CharField(
         max_length = 15,

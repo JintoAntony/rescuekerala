@@ -32,8 +32,10 @@
             {% endif %}
           </td>
           <td>{{ req.requestee }}</td>
-          <td>{{ req.requestee_phone }}{% if req.requestee_phone_2 %} , {{ req.requestee_phone_2 }}  {% endif %}
+
+          <td><a href="tel:{{ req.requestee_phone }}" >{{ req.requestee_phone }}</a> {% if req.requestee_phone_2 %} , {{ req.requestee_phone_2 }}  {% endif %}
               {% if req.requestee_phone_3 %} , {{ req.requestee_phone_3 }}  {% endif %}</td>
+
           <td>{{ req.summarise | linebreaks }}</td>
           <td>{{ req.dateadded }}</td>
         </tr>

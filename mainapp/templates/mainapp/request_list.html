@@ -1,7 +1,58 @@
 {% extends 'base.html' %}
 {% load bootstrap3 %}
 
+{% block css %}
+<style>
+@media only screen and (max-width: 800px)  {
+
+		#requests-table table, thead, tbody, th, td, tr {
+			display: block;
+		}
+
+		#requests-table thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+
+    #requests-table tr {
+      margin: 0 0 1rem 0;
+    }
+
+    #requests-table tr:nth-child(odd) {
+      background: #ccc;
+    }
+
+		#requests-table td {
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee;
+			position: relative;
+			padding-left: 50%;
+		}
+
+		#requests-table td:before {
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 0;
+			left: 6px;
+			width: 45%;
+			padding-right: 10px;
+			white-space: nowrap;
+		}
+		#requests-table td:nth-of-type(1):before { content: "District"; }
+    #requests-table td:nth-of-type(2):before { content: "Location"; }
+    #requests-table td:nth-of-type(3):before { content: "Requestee"; }
+    #requests-table td:nth-of-type(4):before { content: "Phone"; }
+    #requests-table td:nth-of-type(5):before { content: "Date"; }
+    #requests-table td:nth-of-type(6):before { content: "More details"; }
+  }
+</style>
+{% endblock %}
+
 {% block content %}
+
 
     <form action="" method="get" class="text-center">
         {{ filter.form.as_p }}
@@ -54,12 +105,14 @@
         {% endif %}
 
         {% for i in data.paginator.page_range %}
-            {% if data.number == i %}
-                <a class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></a>
-            {% else %}
-                <a href="?page={{ i }}&district={{ request.GET.district }}">{{ i }}</a>
-            {% endif %}
-        {% endfor %}
+
+        {% if data.number == i %}
+          <a class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></a>
+        {% else %}
+          <a href="?page={{ i }}&district={{ request.GET.district }}">{{ i }}</a>
+        {% endif %}
+      {% endfor %}
+
 
         {% if data.has_next %}
             <a href="?page={{ data.next_page_number }}&district={{ request.GET.district }}">next</a>
